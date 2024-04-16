@@ -30,6 +30,58 @@ view: orders {
     sql: ${TABLE}.status ;;
   }
 
+
+  measure: anatomical_rating_left_knee_risk_max {
+    label: "Knee (Left) Risk"
+    type: string
+    sql: MAX(${status}) ;;
+    html:
+      {% if value == 'CANCELLED' %}
+      <div style="color: white; background-color: #EA4335;">{{ value }}</div>
+      {% elsif value == 'PENDING' %}
+      <div style="color: black; background-color: #F9AB00;">{{ value }}</div>
+      {% elsif value == 'COMPLETED' %}
+      <div style="color: black; background-color: #7CB342;">{{ value }}</div>
+      {% else %}
+      <div style="color: black; background-color: white;">{{ value }}</div>
+      {% endif %}
+    ;;
+  }
+
+  measure: Status_color{
+    label: "status per color "
+    type: string
+    sql: MAX(${status}) ;;
+    html:
+      {% if value == 'CANCELLED' %}
+      <div style="color: white; background-color: #EA4335;">{{ value }}</div>
+      {% elsif value == 'PENDING' %}
+      <div style="color: black; background-color: #F9AB00;">{{ value }}</div>
+      {% elsif value == 'COMPLETED' %}
+      <div style="color: black; background-color: #7CB342;">{{ value }}</div>
+      {% else %}
+      <div style="color: black; background-color: white;">{{ value }}</div>
+      {% endif %}
+    ;;
+  }
+
+  measure: Status_color_dos{
+    label: "status per color 2.0 "
+    type: string
+    sql: MAX(${status}) ;;
+    html:
+      {% if value == 'CANCELLED' %}
+      <div style="color: white; background-color: #EA4335;">{{ value }}</div>
+      {% elsif value == 'PENDING' %}
+      <div style="color: black; background-color: #F9AB00;">{{ value }}</div>
+      {% elsif value == 'COMPLETED' %}
+      <div style="color: black; background-color: #7CB342;">{{ value }}</div>
+      {% else %}
+      <div style="color: black; background-color: white;">{{ value }}</div>
+      {% endif %}
+    ;;
+  }
+
   dimension: user_id {
     type: number
     # hidden: yes
@@ -43,18 +95,18 @@ view: orders {
   # ----- Sets of fields for drilling ------
   set: detail {
     fields: [
-	id,
-	users.id,
-	users.first_name,
-	users.last_name,
-	billion_orders.count,
-	fakeorders.count,
-	hundred_million_orders.count,
-	hundred_million_orders_wide.count,
-	order_items.count,
-	order_items_vijaya.count,
-	ten_million_orders.count
-	]
+  id,
+  users.id,
+  users.first_name,
+  users.last_name,
+  billion_orders.count,
+  fakeorders.count,
+  hundred_million_orders.count,
+  hundred_million_orders_wide.count,
+  order_items.count,
+  order_items_vijaya.count,
+  ten_million_orders.count
+  ]
   }
 
 }
