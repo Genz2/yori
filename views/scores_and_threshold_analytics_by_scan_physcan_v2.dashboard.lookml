@@ -99,7 +99,7 @@
   - name: ID
     title: ID
     type: field_filter
-    default_value: "[0,100]"
+    default_value: "[0,1000000]"
     allow_multiple_values: true
     required: false
     ui_config:
