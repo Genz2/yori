@@ -99,7 +99,7 @@
   - name: ID
     title: ID
     type: field_filter
-    default_value: "[0,1000000]"
+    default_value: 4f3c54f4-538a-42c4-8897-1fc6dc1cae8b
     allow_multiple_values: true
     required: false
     ui_config:
