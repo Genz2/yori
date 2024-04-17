@@ -6,6 +6,8 @@ include: "/views/**/*.view.lkml"
 
 
 include: "/views/scores_and_threshold_analytics*.dashboard.lookml"
+include: "/views/scores_and_threshold_analytics_by_scan_physcan_v2*.dashboard.lookml"
+include: "/views/test_for_lookml_dashboard*.dashboard.lookml"
 
 
 # Datagroups define a caching policy for an Explore. To learn more,
